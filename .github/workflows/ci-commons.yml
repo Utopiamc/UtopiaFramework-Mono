@@ -17,7 +17,7 @@ on:
 
 jobs:
   maven:
-    name: CI Commons
+    name: Test Commons
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
