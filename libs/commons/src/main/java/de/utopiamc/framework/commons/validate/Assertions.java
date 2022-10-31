@@ -3,7 +3,7 @@ package de.utopiamc.framework.commons.validate;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
-public class Validator {
+public class Assertions {
 
     public static void requireNonNull(Object object) {
         requireNonNull(object, "Object is null!");

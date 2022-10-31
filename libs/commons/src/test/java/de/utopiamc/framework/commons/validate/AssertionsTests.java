@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class ValidatorTests {
+public class AssertionsTests {
 
     @Test
     void requireNonNull() {
@@ -13,7 +13,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requireNonNull(nullable));
+        assertThatThrownBy(() -> Assertions.requireNonNull(nullable));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requireNull(notNull));
+        assertThatThrownBy(() -> Assertions.requireNull(notNull));
     }
 
     @Test
@@ -33,7 +33,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requireTrue(bool));
+        assertThatThrownBy(() -> Assertions.requireTrue(bool));
     }
 
     @Test
@@ -43,7 +43,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requireFalse(bool));
+        assertThatThrownBy(() -> Assertions.requireFalse(bool));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requirePositive(number));
+        assertThatThrownBy(() -> Assertions.requirePositive(number));
     }
 
     @Test
@@ -61,7 +61,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requirePositive(number));
+        assertThatThrownBy(() -> Assertions.requirePositive(number));
     }
 
     @Test
@@ -70,7 +70,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requirePositive(number));
+        assertThatThrownBy(() -> Assertions.requirePositive(number));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class ValidatorTests {
 
         // when
         // then
-        assertThatThrownBy(() -> Validator.requireNegative(number));
+        assertThatThrownBy(() -> Assertions.requireNegative(number));
     }
 
 }
