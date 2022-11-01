@@ -12,7 +12,7 @@ on:
 
 jobs:
   maven:
-    name: Test Commons
+    name: Test Inject
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,4 +29,4 @@ jobs:
           java-version: 17
           distribution: 'temurin'
       - name: Test
-        run: mvn clean test --projects :commons --also-make --threads=2 --batch-mode
+        run: mvn clean test --projects :inject --also-make --threads=2 --batch-mode
