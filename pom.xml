@@ -9,6 +9,8 @@
     <version>0.0.0-ALPHA</version>
     <modules>
         <module>libs</module>
+        <module>apis</module>
+        <module>libs/inject</module>
     </modules>
     <packaging>pom</packaging>
 
