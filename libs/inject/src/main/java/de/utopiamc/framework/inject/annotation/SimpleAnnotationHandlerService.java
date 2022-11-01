@@ -29,6 +29,8 @@ public class SimpleAnnotationHandlerService implements AnnotationHandlerService 
 
     @Override
     public Set<HandlerResult> handleAnnotations(BeanDefinition beanDefinition) {
+        Assertions.requireNonNull(beanDefinition, "BeanDefinition should not be null!");
+
         Set<HandlerResult> results = new HashSet<>();
         for (Annotation annotation : beanDefinition.getAnnotations()) {
             Set<AnnotationHandler> handlers = annotationHandlers.get(annotation.annotationType());
