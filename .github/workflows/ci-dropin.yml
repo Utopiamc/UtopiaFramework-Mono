@@ -1,0 +1,37 @@
+name: CI DropIn
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'dev'
+      - 'feature/*'
+    paths:
+      - 'libs/dropin/**'
+  pull_request:
+    branches:
+      - 'main'
+      - 'dev'
+    paths:
+      - 'libs/dropin/**'
+
+jobs:
+  maven:
+    name: Test DropIn
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.1.0
+      - name: Cache Depdendencies
+        uses: actions/cache@v3.0.11
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
+      - name: JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: 'temurin'
+      - name: Test
+        run: mvn clean test --projects :dropin --also-make --threads=2 --batch-mode
