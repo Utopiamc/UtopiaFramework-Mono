@@ -38,6 +38,11 @@
             <groupId>de.utopiamc</groupId>
             <artifactId>utopia-tests</artifactId>
         </dependency>
+        <dependency>
+            <groupId>de.utopiamc.framework</groupId>
+            <artifactId>commons</artifactId>
+            <version>0.0.0-ALPHA</version>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
