@@ -19,6 +19,7 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <version.global>${project.version}</version.global>
     </properties>
 
     <repositories>
@@ -41,7 +42,7 @@
         <dependency>
             <groupId>de.utopiamc.framework</groupId>
             <artifactId>commons</artifactId>
-            <version>0.0.0-ALPHA</version>
+            <version>${version.global}</version>
         </dependency>
     </dependencies>
 

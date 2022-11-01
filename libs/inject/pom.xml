@@ -17,7 +17,7 @@
         <dependency>
             <groupId>de.utopiamc.framework</groupId>
             <artifactId>injector-api</artifactId>
-            <version>0.0.0-ALPHA</version>
+            <version>${version.global}</version>
         </dependency>
     </dependencies>
 
