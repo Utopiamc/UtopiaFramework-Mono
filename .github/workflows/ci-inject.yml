@@ -1,4 +1,4 @@
-name: CI DropIn
+name: CI Inject
 
 on:
   push:
@@ -7,11 +7,12 @@ on:
       - 'dev'
       - 'feature/*'
     paths:
-      - 'libs/dropin/**'
+      - 'libs/inject/**'
+      - 'apis/injector-api/**'
 
 jobs:
   maven:
-    name: Test DropIn
+    name: Test Commons
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,4 +29,4 @@ jobs:
           java-version: 17
           distribution: 'temurin'
       - name: Test
-        run: mvn clean test --projects :dropin --also-make --threads=2 --batch-mode
+        run: mvn clean test --projects :commons --also-make --threads=2 --batch-mode
