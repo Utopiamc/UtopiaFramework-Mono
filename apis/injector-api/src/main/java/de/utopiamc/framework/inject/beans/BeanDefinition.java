@@ -14,6 +14,8 @@ public interface BeanDefinition {
 
     Type getType();
 
+    Class<? extends Annotation> getScope();
+
     @Nullable
     BeanDefinition getParent();
 
