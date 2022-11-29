@@ -15,14 +15,27 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.commons.collections;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
+public class Sets {
+
+	public <E> HashSet<E> newHashSet() {
+		return new HashSet<>();
+	}
+
+	public <E> LinkedHashSet<E> newLinkedHashSet() {
+		return new LinkedHashSet<>();
+	}
+
+	public <E extends Comparable<?>> TreeSet<E> newTreeSet() {
+		return new TreeSet<>();
+	}
+
 }

@@ -15,14 +15,25 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.inject.assist;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.utopiamc.framework.inject.bootstrap.ClassBootstrapContext;
+import de.utopiamc.framework.inject.bootstrap.annotation.AnnotationProcessor;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+import com.google.inject.Module;
+
+public class AssistedFactoryAnnotationProcessor implements AnnotationProcessor {
+
+	private final AssistedFactoryHandler handler;
+
+	public AssistedFactoryAnnotationProcessor(AssistedFactoryHandler handler) {
+		this.handler = handler;
+	}
+
+	@Override
+	public void process(Class<?> cls, ClassBootstrapContext context) {
+		Module module = handler.handleAssistedFactory(cls);
+		context.getBinder(binder -> binder.install(module));
+	}
+
 }

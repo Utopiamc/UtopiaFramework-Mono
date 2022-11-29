@@ -15,14 +15,23 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+import java.io.File;
+import java.util.Map;
+import java.util.Set;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.utopiamc.framework.dropin.DropIn;
+import de.utopiamc.framework.dropin.bootstrap.AbstractDropInBootstrapper;
+import de.utopiamc.framework.dropin.bootstrap.DropInBootstrapper;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public class Test {
+
+	public static void main(String[] args) {
+		DropInBootstrapper bootstrapper = new AbstractDropInBootstrapper() {};
+
+		Map<String, DropIn> stringDropInMap = bootstrapper.bootstrapDropIns(Set.of(new File("/Volumes/Oskar/utopia/framework/framework/test/target/test-0.0" +
+				".0-ALPHA.jar")));
+
+		System.out.println(stringDropInMap.values());
+	}
+
 }

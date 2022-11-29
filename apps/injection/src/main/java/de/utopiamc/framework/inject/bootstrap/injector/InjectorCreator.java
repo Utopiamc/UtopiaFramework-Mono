@@ -15,14 +15,15 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.inject.bootstrap.injector;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.google.inject.Injector;
+import com.google.inject.Module;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public interface InjectorCreator {
+
+	Injector createInjector(@Nullable Injector parent, @NotNull Module installModule, Module... dependentModules);
+
 }

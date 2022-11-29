@@ -10,7 +10,8 @@
     <modules>
         <module>libs</module>
         <module>apis</module>
-        <module>libs/inject</module>
+        <module>apps</module>
+        <module>test</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -23,10 +24,7 @@
     </properties>
 
     <repositories>
-        <repository>
-            <id>utopia</id>
-            <url>https://repo.utopiamc.de/repository/maven-public/</url>
-        </repository>
+
     </repositories>
 
     <dependencies>
@@ -39,15 +37,33 @@
             <groupId>de.utopiamc</groupId>
             <artifactId>utopia-tests</artifactId>
         </dependency>
-        <dependency>
-            <groupId>de.utopiamc.framework</groupId>
-            <artifactId>commons</artifactId>
-            <version>${version.global}</version>
-        </dependency>
     </dependencies>
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.google.inject</groupId>
+                <artifactId>guice</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.inject.extensions</groupId>
+                <artifactId>guice-assistedinject</artifactId>
+                <version>5.1.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.code.gson</groupId>
+                <artifactId>gson</artifactId>
+                <version>2.10</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.classgraph</groupId>
+                <artifactId>classgraph</artifactId>
+                <version>4.8.151</version>
+            </dependency>
+
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -71,6 +87,18 @@
                 <artifactId>utopia-tests</artifactId>
                 <version>1.1.1-RELEASE</version>
                 <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>de.utopiamc.framework</groupId>
+                <artifactId>commons</artifactId>
+                <version>0.0.0-ALPHA</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>2.14.0</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

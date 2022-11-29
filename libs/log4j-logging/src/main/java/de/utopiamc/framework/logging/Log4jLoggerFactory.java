@@ -15,14 +15,23 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.logging;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+public class Log4jLoggerFactory extends LoggerFactory {
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+	public static void configure() {
+		instance = new Log4jLoggerFactory();
+	}
+
+	@Override
+	public Logger provideLogger(Class<?> cls) {
+		return provideLogger(cls.getName());
+	}
+
+	@Override
+	public Logger provideLogger(String name) {
+		System.out.println(name);
+		return new Log4jLogger(org.apache.log4j.Logger.getLogger(name));
+	}
+
 }

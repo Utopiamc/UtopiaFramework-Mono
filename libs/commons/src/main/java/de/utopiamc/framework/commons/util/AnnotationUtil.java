@@ -46,7 +46,7 @@ public class AnnotationUtil {
         }
 
         for (Annotation elementAnnotation : element.getAnnotations()) {
-            if (scannedAnnotations.contains(elementAnnotation)) {
+            if (scannedAnnotations.contains(elementAnnotation) || isInJavaLangAnnotationPackage(elementAnnotation.annotationType())) {
                 continue;
             }
             scannedAnnotations.add(elementAnnotation);
@@ -87,7 +87,7 @@ public class AnnotationUtil {
 
     private Set<Annotation> getAnnotations(AnnotatedElement element, Set<Annotation> scannedAnnotations) {
         for (Annotation annotation : element.getAnnotations()) {
-            if (scannedAnnotations.contains(annotation)) {
+            if (scannedAnnotations.contains(annotation) || isInJavaLangAnnotationPackage(annotation.annotationType())) {
                 continue;
             }
             scannedAnnotations.add(annotation);
@@ -132,6 +132,10 @@ public class AnnotationUtil {
         }
 
         return scannedAnnotations;
+    }
+
+    private boolean isInJavaLangAnnotationPackage(Class<? extends Annotation> annotation) {
+        return annotation.getPackage().getName().startsWith("java.lang.annotation");
     }
 
 }

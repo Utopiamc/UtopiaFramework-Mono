@@ -15,14 +15,32 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.commons.collections;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+import java.util.concurrent.ConcurrentHashMap;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
+public class Maps {
+
+	public <K, V> HashMap<K, V> newHashMap() {
+		return new HashMap<>();
+	}
+
+	public <K, V> LinkedHashMap<K, V> newLinkedHashMap() {
+		return new LinkedHashMap<>();
+	}
+
+	public <K, V> ConcurrentHashMap<K, V> newConcurrentHashMap() {
+		return new ConcurrentHashMap<>();
+	}
+
+	public <K extends Comparable<?>, V> TreeMap<K, V> newTreeMap() {
+		return new TreeMap<>();
+	}
+
 }

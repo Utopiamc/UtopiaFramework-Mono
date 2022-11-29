@@ -9,12 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>libs</artifactId>
+    <artifactId>apps</artifactId>
     <packaging>pom</packaging>
-    <name>UtopiaFramework :: Libs</name>
+    <name>UtopiaFramework :: Apps</name>
     <modules>
-        <module>commons</module>
-        <module>log4j-logging</module>
+        <module>injection</module>
+        <module>dropin</module>
     </modules>
 
     <dependencies>

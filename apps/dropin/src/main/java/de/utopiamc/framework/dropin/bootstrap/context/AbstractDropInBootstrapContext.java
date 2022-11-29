@@ -15,14 +15,33 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.dropin.bootstrap.context;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.utopiamc.framework.dropin.config.DropInConfiguration;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public abstract class AbstractDropInBootstrapContext implements DropInBootstrapContext {
+
+	private String id;
+	protected String fileName;
+	protected DropInConfiguration configuration;
+
+	@Override
+	public DropInConfiguration getConfiguration() {
+		return configuration;
+	}
+
+	@Override
+	public String getFileName() {
+		return fileName;
+	}
+
+	@Override
+	public String getId() {
+		if (id == null) {
+			this.id = resolveId();
+		}
+		return id;
+	}
+
+	protected abstract String resolveId();
 }

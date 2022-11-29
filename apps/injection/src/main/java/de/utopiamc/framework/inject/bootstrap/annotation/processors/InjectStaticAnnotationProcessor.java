@@ -15,14 +15,16 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.inject.bootstrap.annotation.processors;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import de.utopiamc.framework.inject.bootstrap.ClassBootstrapContext;
+import de.utopiamc.framework.inject.bootstrap.annotation.AnnotationProcessor;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public class InjectStaticAnnotationProcessor implements AnnotationProcessor {
+
+	@Override
+	public void process(Class<?> cls, ClassBootstrapContext context) {
+		context.getBinder(binder -> binder.requestInjection(cls));
+	}
+
 }

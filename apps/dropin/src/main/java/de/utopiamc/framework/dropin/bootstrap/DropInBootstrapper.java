@@ -15,14 +15,17 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.dropin.bootstrap;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.io.File;
+import java.nio.file.Files;
+import java.util.Map;
+import java.util.Set;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+import de.utopiamc.framework.dropin.DropIn;
+
+public interface DropInBootstrapper {
+
+	Map<String, DropIn> bootstrapDropIns(Set<File> files);
+
 }

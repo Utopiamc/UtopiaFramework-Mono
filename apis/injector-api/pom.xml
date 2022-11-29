@@ -21,6 +21,11 @@
             <groupId>org.apiguardian</groupId>
             <artifactId>apiguardian-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

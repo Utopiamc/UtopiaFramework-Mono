@@ -15,14 +15,16 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.inject.assist;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.google.inject.Module;
+import com.google.inject.assistedinject.FactoryModuleBuilder;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public class AssistedFactoryHandler {
+
+	public Module handleAssistedFactory(Class<?> factory) {
+		FactoryModuleBuilder factoryModuleBuilder = new FactoryModuleBuilder();
+		return factoryModuleBuilder.build(factory);
+	}
+
 }

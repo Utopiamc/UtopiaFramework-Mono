@@ -15,14 +15,22 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.commons.collections;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.util.ArrayList;
+import java.util.LinkedList;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+import lombok.experimental.UtilityClass;
+
+@UtilityClass
+public class Lists {
+
+	public <E> ArrayList<E> newArrayList() {
+		return new ArrayList<>();
+	}
+
+	public <E> LinkedList<E> newLinkedList() {
+		return new LinkedList<>();
+	}
+
 }

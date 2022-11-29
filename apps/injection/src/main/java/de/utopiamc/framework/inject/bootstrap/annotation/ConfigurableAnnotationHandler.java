@@ -15,14 +15,12 @@
  * limitations under the License.
  */
 
-package de.utopiamc.framework.inject.annotations;
+package de.utopiamc.framework.inject.bootstrap.annotation;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import java.lang.annotation.Annotation;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.TYPE, ElementType.ANNOTATION_TYPE})
-public @interface Component {
+public interface ConfigurableAnnotationHandler extends AnnotationHandler {
+
+	void addAnnotationHandler(Class<? extends Annotation> annotation, AnnotationProcessor processor);
+
 }
